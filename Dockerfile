@@ -16,6 +16,5 @@ COPY package.json pnpm-lock.yaml ./
 RUN npm install -g pnpm && pnpm install --prod
 
 COPY --from=builder /app/dist dist
-RUN pnpm add -g serve
 EXPOSE 4173
 CMD ["serve", "dist", "--listen", "4173", "--single"]
